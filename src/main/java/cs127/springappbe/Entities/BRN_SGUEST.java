@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-@Entity(name = "BRN_SECONDARY_GUEST")
+@Entity(name = "BRN_SGUEST")
 public class BRN_SGUEST {
     @Id
     @SequenceGenerator(name="BRN_SGUEST_seq", sequenceName = "BRN_SGUEST_SEQ", allocationSize = 1)

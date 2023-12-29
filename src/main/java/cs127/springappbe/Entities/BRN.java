@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +26,16 @@ public class BRN {
     @JoinColumn(name = "PGUEST_ID", nullable = false)
     private PrimaryGuest primaryGuest;
 
-    private String booking_date;
+    private Date booking_date;
 
-    private String checkin_date;
+    private Date checkin_date;
 
-    private String checkout_date;
+    private Date checkout_date;
 
     @OneToMany(mappedBy = "brn", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<BRN_SGUEST> guests = new ArrayList<>();
+
+    @OneToMany(mappedBy = "brn", cascade = CascadeType.PERSIST)
+    private List<BookedRoom> bookedRooms = new ArrayList<>();
 
 }

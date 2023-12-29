@@ -1,16 +1,14 @@
 package cs127.springappbe.Entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,22 +24,16 @@ public class PrimaryGuest {
     @GeneratedValue(generator = "pguest_seq")
     private long PGuest_ID;
 
-    @JsonProperty("first_name")
     private String firstName;
 
-    @JsonProperty("last_name")
     private String lastName;
 
-    @JsonProperty("birthday")
-    private String birthday;
+    private Date birthday;
 
-    @JsonProperty("address")
     private String address;
 
-    @JsonProperty("contact_number")
     private String contactNumber;
 
-    @JsonProperty("email_address")
     private String emailAddress;
 
     @JsonIgnore
@@ -49,7 +41,7 @@ public class PrimaryGuest {
     private List<BRN> brns = new ArrayList<>();
 
     public PrimaryGuest(String firstName, String lastName,
-                        String birthday, String address,
+                        Date birthday, String address,
                         String contactNumber, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;

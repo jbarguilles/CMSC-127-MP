@@ -2,6 +2,7 @@ package cs127.springappbe.Service;
 
 import cs127.springappbe.Entities.BRN;
 import cs127.springappbe.Entities.Request.AddBookingRequest;
+import cs127.springappbe.Entities.Room;
 import cs127.springappbe.Repository.BRNRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,8 +20,10 @@ public class BRNServiceImpl implements BRNService{
     @Qualifier("SGuestServiceImpl")
     private final SGuestService sGuestService;
 
+    private final RoomService roomService;
+
     @Override
     public BRN addBooking(AddBookingRequest bookingRequest) {
-        return brnRepository.save(bookingRequest.mapToBooking(pGuestService, sGuestService));
+        return brnRepository.save(bookingRequest.mapToBooking(pGuestService, sGuestService, roomService));
     }
 }

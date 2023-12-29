@@ -6,6 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface BRNService {
-
-    public BRN addBooking(AddBookingRequest bookingRequest);
+    BRN addBooking(AddBookingRequest bookingRequest);
 }

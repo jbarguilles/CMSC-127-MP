@@ -5,6 +5,7 @@ import cs127.springappbe.Repository.SGuestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -14,7 +15,7 @@ public class SGuestServiceImpl implements SGuestService{
     private final SGuestRepository sGuestRepository;
 
     @Override
-    public Optional<SecondaryGuest> findSecondaryGuest(String firstName, String lastName, String birthday) {
+    public Optional<SecondaryGuest> findSecondaryGuest(String firstName, String lastName, Date birthday) {
         return sGuestRepository.findSecondaryGuest(firstName, lastName, birthday);
     }
 }
