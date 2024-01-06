@@ -7,6 +7,7 @@ import java.util.Optional;
 
 @Service
 public interface EmployeeService {
+
     Optional<Employee> findByEmployeeID(long EmployeeID);
-    //Employee findByEmployeeID(long EmployeeID);
+
 }

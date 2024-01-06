@@ -12,6 +12,8 @@ public interface PGuestRepository extends JpaRepository<PrimaryGuest,Long> {
 
     Optional<PrimaryGuest> findByFirstNameIgnoreCaseAndLastNameIgnoreCaseAndBirthday(String firstName, String lastName, Date birthday);
 
+    boolean existsByFirstNameAndLastName(String firstName, String lastName);
+
 
     default Optional<PrimaryGuest> findPrimaryGuest(String firstName, String lastName, Date birthday){
         return findByFirstNameIgnoreCaseAndLastNameIgnoreCaseAndBirthday(firstName, lastName, birthday);

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BRN_SGuestRepository extends JpaRepository<BRN_SGUEST, Long> {
+
+
 }

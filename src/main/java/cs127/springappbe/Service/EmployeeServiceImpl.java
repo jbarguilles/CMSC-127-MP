@@ -12,10 +12,11 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
+
     private final EmployeeRepository employeeRepository;
     @Override
-    public Optional<Employee> findByEmployeeID(long EmployeeID) {
-        return employeeRepository.findByEmployeeID(EmployeeID);
+    public Optional<Employee> findByEmployeeID(long employeeID) {
+        return employeeRepository.findByEmployeeID(employeeID);
     }
 //    public Employee findByEmployeeID(long EmployeeID) {
 //        return employeeRepository.findByEmployeeID(EmployeeID);

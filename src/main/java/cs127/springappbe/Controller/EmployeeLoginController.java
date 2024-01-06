@@ -15,7 +15,6 @@ import java.util.Optional;
 @RequestMapping(path = "/employee")
 public class EmployeeLoginController {
 
-    @Qualifier("EmployeeServiceImpl")
     private final EmployeeService employeeService;
 
     @PostMapping(path="/login")

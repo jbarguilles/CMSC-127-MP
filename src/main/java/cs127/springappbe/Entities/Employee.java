@@ -17,7 +17,7 @@ public class Employee {
     @SequenceGenerator(name="emp_seq", sequenceName = "EMP_SEQ", allocationSize = 1)
     @Column(name = "EMPLOYEE_ID", nullable = false)
     @GeneratedValue(generator = "emp_seq")
-    private long Employee_ID;
+    private long employeeID;
 
     @ManyToOne(cascade = CascadeType.PERSIST, optional = false)
     @JoinColumn(name = "ROLE_ID", nullable = false)
