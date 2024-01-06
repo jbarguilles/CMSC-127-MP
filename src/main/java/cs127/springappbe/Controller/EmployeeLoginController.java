@@ -20,12 +20,12 @@ public class EmployeeLoginController {
     @PostMapping(path="/login")
     public @ResponseBody long empLogin(@RequestBody EmployeeLoginRequest employeeLoginRequest){
         Optional<Employee> enteredOptionalEmployee = employeeService.findByEmployeeID(employeeLoginRequest.getEmployeeID());
-
-        Employee enteredEmployee = enteredOptionalEmployee.get();
-        //Employee enteredEmployee = employeeService.findByEmployeeID(employeeLoginRequest.getEmployeeID());
-
-        if (Objects.equals(enteredEmployee.getAccount_Password(), employeeLoginRequest.getPassword())) {
-            return employeeLoginRequest.getEmployeeID();
+        Employee enteredEmployee;
+        if(enteredOptionalEmployee.isPresent()){
+            enteredEmployee = enteredOptionalEmployee.get();
+            if (Objects.equals(enteredEmployee.getAccount_Password(), employeeLoginRequest.getPassword())) {
+                return enteredEmployee.getEmployee_Role().getRole_Id();
+            }
         }
         return 0;
     }
