@@ -9,10 +9,10 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeLoginRequest {
     @JsonProperty("employee_id")
     private long employeeID;
-    @JsonProperty("first_name")
-    private String firstName;
-    @JsonProperty("last_name")
-    private String lastName;
+//    @JsonProperty("first_name")
+//    private String firstName;
+//    @JsonProperty("last_name")
+//    private String lastName;
     @JsonProperty("password")
     private String password;
 }

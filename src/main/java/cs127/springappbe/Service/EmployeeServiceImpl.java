@@ -14,10 +14,10 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository employeeRepository;
     @Override
-//    public Optional<Employee> findByEmployeeID(long EmployeeID) {
-//        return employeeRepository.findByEmployeeID(EmployeeID);
-//    }
-    public Employee findByEmployeeID(long EmployeeID) {
+    public Optional<Employee> findByEmployeeID(long EmployeeID) {
         return employeeRepository.findByEmployeeID(EmployeeID);
     }
+//    public Employee findByEmployeeID(long EmployeeID) {
+//        return employeeRepository.findByEmployeeID(EmployeeID);
+//    }
 }
