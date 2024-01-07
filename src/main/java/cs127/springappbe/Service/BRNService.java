@@ -11,5 +11,5 @@ import java.util.List;
 public interface BRNService {
     BRN addBooking(AddBookingRequest bookingRequest);
 
-    List<SecondaryGuest> findSecondaryGuests(Long BRNID);
+//    List<SecondaryGuest> findSecondaryGuests(Long BRNID);
 }

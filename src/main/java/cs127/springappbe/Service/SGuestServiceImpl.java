@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -17,5 +18,10 @@ public class SGuestServiceImpl implements SGuestService{
     @Override
     public Optional<SecondaryGuest> findSecondaryGuest(String firstName, String lastName, Date birthday) {
         return sGuestRepository.findSecondaryGuest(firstName, lastName, birthday);
+    }
+
+    @Override
+    public List<SecondaryGuest> findSecondaryGuests(Long BRNID){
+        return sGuestRepository.findSecondaryGuests(BRNID);
     }
 }

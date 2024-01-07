@@ -30,8 +30,8 @@ public class BRNServiceImpl implements BRNService{
         return brnRepository.save(bookingRequest.mapToBooking(pGuestService, sGuestService, roomService));
     }
 
-    @Override
-    public List<SecondaryGuest> findSecondaryGuests(Long BRNID){
-        return brnRepository.findSecondaryGuests(BRNID);
-    }
+//    @Override
+//    public List<SecondaryGuest> findSecondaryGuests(Long BRNID){
+//        return brnRepository.findSecondaryGuests(BRNID);
+//    }
 }
