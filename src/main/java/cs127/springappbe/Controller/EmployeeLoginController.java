@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -28,5 +29,10 @@ public class EmployeeLoginController {
             }
         }
         return 0;
+    }
+
+    @GetMapping(path = "/find")
+    public Optional<Employee> findEmployeeByID(@RequestParam(value = "emp_id") Long EMP_ID){
+        return employeeService.findByEmployeeID(EMP_ID);
     }
 }
