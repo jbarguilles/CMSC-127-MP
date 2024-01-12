@@ -1,9 +1,10 @@
 package cs127.springappbe.Service;
 
-import cs127.springappbe.Entities.BRN;
+import cs127.springappbe.Entities.*;
 import cs127.springappbe.Entities.Request.AddBookingRequest;
-import cs127.springappbe.Entities.Room;
-import cs127.springappbe.Entities.SecondaryGuest;
+import cs127.springappbe.Entities.Request.AvailServiceRequest;
+import cs127.springappbe.Entities.Request.ChargeServicesRequest;
+import cs127.springappbe.Repository.AvailedServiceRepository;
 import cs127.springappbe.Repository.BRNRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -28,6 +29,10 @@ public class BRNServiceImpl implements BRNService{
     private final SGuestService sGuestService;
 
     private final RoomService roomService;
+
+    private final ServiceEntityService serviceEntityService;
+
+    private final AvailedServiceRepository availedServiceRepository;
 
     @Override
     public BRN addBooking(AddBookingRequest bookingRequest) {
@@ -58,6 +63,35 @@ public class BRNServiceImpl implements BRNService{
         BRN toChange = brnRepository.findBRNByBRNCode(BRNCode).get();
         toChange.setStatus(status);
         return brnRepository.save(toChange);
+    }
+
+    @Override
+    public BRN addServices(ChargeServicesRequest servicesToAvail) {
+        BRN clientBRN = null;
+        Optional<BRN> optionalBRN = brnRepository.findBRNByBRNCode(servicesToAvail.getBRNCode());
+
+        if(optionalBRN.isPresent()){
+            clientBRN = optionalBRN.get();
+
+            List<AvailedService> services = new ArrayList<>();
+
+            for(AvailServiceRequest availServiceRequest : servicesToAvail.getAvailedServices()){
+
+                AvailedService availedService = new AvailedService();
+                ServiceEntity serviceToAvail = serviceEntityService.findServiceByID(availServiceRequest.getServiceID());
+
+                availedService.setServiceEntity(serviceToAvail);
+                availedService.setBrn(clientBRN);
+
+                availedServiceRepository.save(availedService);
+
+                services.add(availedService);
+            }
+
+            clientBRN.setAvailedServices(services);
+        }
+
+        return clientBRN;
     }
 
 

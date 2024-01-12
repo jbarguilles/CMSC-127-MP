@@ -2,6 +2,7 @@ package cs127.springappbe.Controller;
 
 import cs127.springappbe.Entities.BRN;
 import cs127.springappbe.Entities.Request.AddBookingRequest;
+import cs127.springappbe.Entities.Request.ChargeServicesRequest;
 import cs127.springappbe.Entities.SecondaryGuest;
 import cs127.springappbe.Service.BRNService;
 import cs127.springappbe.Service.SGuestService;
@@ -56,4 +57,10 @@ public class BRNController {
     public BRN changeStatus(@RequestParam(value="BRNCODE") String BRNCODE, @RequestParam(value="status") String status){
         return brnService.changeBRNStatus(BRNCODE, status);
     }
+
+    @PostMapping(path="/chargeService")
+    public @ResponseBody BRN chargeServices(@RequestBody ChargeServicesRequest servicesToAvail){
+        return brnService.addServices(servicesToAvail);
+    }
+
 }

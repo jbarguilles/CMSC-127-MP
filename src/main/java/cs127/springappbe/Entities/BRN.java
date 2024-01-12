@@ -43,4 +43,7 @@ public class BRN {
     @OneToMany(mappedBy = "brn", cascade = CascadeType.PERSIST)
     private List<BookedRoom> bookedRooms = new ArrayList<>();
 
+    @OneToMany(mappedBy = "brn")
+    private List<AvailedService> availedServices = new ArrayList<>();
+
 }

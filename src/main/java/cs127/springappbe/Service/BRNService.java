@@ -2,6 +2,7 @@ package cs127.springappbe.Service;
 
 import cs127.springappbe.Entities.BRN;
 import cs127.springappbe.Entities.Request.AddBookingRequest;
+import cs127.springappbe.Entities.Request.ChargeServicesRequest;
 import cs127.springappbe.Entities.SecondaryGuest;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +19,6 @@ public interface BRNService {
     BRN changeBRNStatus(String BRNCode, String status);
 
 //    List<SecondaryGuest> findSecondaryGuests(Long BRNID);
+
+    BRN addServices(ChargeServicesRequest servicesToAvail);
 }
