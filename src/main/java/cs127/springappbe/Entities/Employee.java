@@ -31,7 +31,7 @@ public class Employee {
 
     private String Last_Name;
 
-    private long Salary;
+    private Double Salary;
 
     private String Account_Password;
 }

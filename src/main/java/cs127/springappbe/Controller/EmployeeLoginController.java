@@ -2,6 +2,7 @@ package cs127.springappbe.Controller;
 
 import cs127.springappbe.Entities.Employee;
 import cs127.springappbe.Entities.Request.EmployeeLoginRequest;
+import cs127.springappbe.Entities.Request.UpdateEmployeeSalaryRequest;
 import cs127.springappbe.Service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -35,5 +36,10 @@ public class EmployeeLoginController {
     @GetMapping(path = "/find")
     public Optional<Employee> findEmployeeByID(@RequestParam(value = "emp_id") Long EMP_ID){
         return employeeService.findByEmployeeID(EMP_ID);
+    }
+
+    @PutMapping(path = "/updatesalary")
+    public Employee updateSalary(@RequestBody UpdateEmployeeSalaryRequest updateEmployeeSalaryRequest){
+        return employeeService.updateSalary(updateEmployeeSalaryRequest);
     }
 }

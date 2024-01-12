@@ -1,6 +1,7 @@
 package cs127.springappbe.Service;
 
 import cs127.springappbe.Entities.Employee;
+import cs127.springappbe.Entities.Request.UpdateEmployeeSalaryRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -10,4 +11,5 @@ public interface EmployeeService {
 
     Optional<Employee> findByEmployeeID(long EmployeeID);
 
+    Employee updateSalary(UpdateEmployeeSalaryRequest updateEmployeeSalaryRequest);
 }
