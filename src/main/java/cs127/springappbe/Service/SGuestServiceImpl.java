@@ -24,4 +24,9 @@ public class SGuestServiceImpl implements SGuestService{
     public List<SecondaryGuest> findSecondaryGuests(Long BRNID){
         return sGuestRepository.findSecondaryGuests(BRNID);
     }
+
+    @Override
+    public List<SecondaryGuest> findSecondaryGuests(String BRNCODE) {
+        return sGuestRepository.findSecondaryGuests(BRNCODE);
+    }
 }

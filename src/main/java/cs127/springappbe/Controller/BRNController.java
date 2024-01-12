@@ -28,9 +28,14 @@ public class BRNController {
         return brnService.addBooking(bookingToAdd);
     }
 
-    @GetMapping(path="/secondaryguests")
+    @GetMapping(path="/secondaryguestsID")
     public List<SecondaryGuest> findSecondaryGuests(@RequestParam(value="BRNID") Long BRNID){
         return sGuestService.findSecondaryGuests(BRNID);
+    }
+
+    @GetMapping(path="/secondaryguestsBRNCODE")
+    public List<SecondaryGuest> findSecondaryGuests(@RequestParam(value="BRNCODE") String BRNCODE){
+        return sGuestService.findSecondaryGuests(BRNCODE);
     }
 
     @GetMapping(path="/getbyID")

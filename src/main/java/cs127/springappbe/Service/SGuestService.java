@@ -13,5 +13,6 @@ public interface SGuestService {
     Optional<SecondaryGuest> findSecondaryGuest(String firstName, String lastName, Date Birthday);
 
     List<SecondaryGuest> findSecondaryGuests(Long BRNID);
+    List<SecondaryGuest> findSecondaryGuests(String BRNCODE);
 
 }

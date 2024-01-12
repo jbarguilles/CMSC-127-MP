@@ -26,4 +26,13 @@ public interface SGuestRepository extends JpaRepository<SecondaryGuest, Long> {
             nativeQuery = true
     )
     List<SecondaryGuest> findSecondaryGuests(Long BRNID);
+
+    @Query(
+            value = "SELECT SG.* FROM BRN " +
+                    "FULL JOIN BRN_SGUEST BS on BRN.BRN_ID = BS.BRN_ID " +
+                    "FULL JOIN SECONDARY_GUEST SG on BS.SGUEST_ID = SG.SGUEST_ID " +
+                    "WHERE BRN.BRNCODE=?1",
+            nativeQuery = true
+    )
+    List<SecondaryGuest> findSecondaryGuests(String BRNCODE);
 }
