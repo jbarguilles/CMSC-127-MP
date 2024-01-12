@@ -21,6 +21,11 @@ public class PGuestServiceImpl implements PGuestService{
         return pGuestRepository.findPrimaryGuest(firstName, lastName, birthday);
     }
 
+    @Override
+    public List<PrimaryGuest> findAllPGuest() {
+        return pGuestRepository.findAll();
+    }
+
 //    @Override
 //    public List<SecondaryGuest> findSecondaryGuests(Long PGuestID){
 //        return pGuestRepository.findSecondaryGuests(PGuestID);

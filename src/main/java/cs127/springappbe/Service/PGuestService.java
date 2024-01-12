@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface PGuestService {
 
     Optional<PrimaryGuest> findPrimaryGuest(String firstName, String lastName, Date Birthday);
-
+    List<PrimaryGuest> findAllPGuest();
 //    List<SecondaryGuest> findSecondaryGuests(Long PGuestID);
 
 }
