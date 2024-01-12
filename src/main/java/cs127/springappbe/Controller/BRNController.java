@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/brn")
@@ -32,4 +33,22 @@ public class BRNController {
         return sGuestService.findSecondaryGuests(BRNID);
     }
 
+    @GetMapping(path="/getbyID")
+    public BRN getBRNDetailsByID(@RequestParam(value="BRNID") Long BRNID){
+        return brnService.findBRNByBRNID(BRNID).get();
+    }
+
+    @GetMapping(path="/getbyCODE")
+    public BRN getBRNDetailsByCode(@RequestParam(value="BRNCODE") String BRNCODE){
+        return brnService.findBRNByBRNCode(BRNCODE).get();
+    }
+    @PutMapping(path="/changestatusID")
+    public BRN changeStatus(@RequestParam(value="BRNID") Long BRNID, @RequestParam(value="status") String status){
+        return brnService.changeBRNStatus(BRNID, status);
+    }
+
+    @PutMapping(path="/changestatusCODE")
+    public BRN changeStatus(@RequestParam(value="BRNCODE") String BRNCODE, @RequestParam(value="status") String status){
+        return brnService.changeBRNStatus(BRNCODE, status);
+    }
 }

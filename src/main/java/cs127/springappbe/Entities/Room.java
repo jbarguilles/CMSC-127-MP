@@ -1,5 +1,6 @@
 package cs127.springappbe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,6 +29,7 @@ public class Room {
     private String isOccupied;
 
     @OneToOne(mappedBy = "room")
+    @JsonIgnore
     private BookedRoom bookedRoom;
 
 }

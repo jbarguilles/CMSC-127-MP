@@ -206,3 +206,9 @@ INSERT INTO ROOM (ROOM_ID, ROOM_NUMBER, ROOM_TYPE_ID) VALUES (ROOM_SEQ.nextval, 
 alter table BRN
     add STATUS VARCHAR2(20) default 'BOOKING';
    COMMIT;
+
+alter table BRN
+  add BRNCODE VARCHAR2(7) not null;
+commit;
+
+alter table BRN rename column BRN_ID to BRNID;
