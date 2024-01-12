@@ -34,6 +34,8 @@ public class BRNServiceImpl implements BRNService{
 
     private final AvailedServiceRepository availedServiceRepository;
 
+    private final EmployeeService employeeService;
+
     @Override
     public BRN addBooking(AddBookingRequest bookingRequest) {
         BRN toAdd = bookingRequest.mapToBooking(pGuestService, sGuestService, roomService);
@@ -81,6 +83,15 @@ public class BRNServiceImpl implements BRNService{
                 ServiceEntity serviceToAvail = serviceEntityService.findServiceByID(availServiceRequest.getServiceID());
 
                 availedService.setServiceEntity(serviceToAvail);
+
+                Employee employee = null;
+                Optional<Employee> optionalEmployee = employeeService.findByEmployeeID(servicesToAvail.getEmployeeID());
+
+                if(optionalEmployee.isPresent()){
+                    employee = optionalEmployee.get();
+                    availedService.setEmployee(employee);
+                }
+
                 availedService.setBrn(clientBRN);
 
                 availedServiceRepository.save(availedService);

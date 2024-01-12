@@ -30,4 +30,8 @@ public class AvailedService {
     @JoinColumn(name = "BRN_ID", nullable = false)
     private BRN brn;
 
+    @OneToOne(optional = false)
+    @JoinColumn(name = "EMPLOYEE_ID", nullable = false)
+    private Employee employee;
+
 }

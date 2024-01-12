@@ -16,7 +16,7 @@ public class ChargeServicesRequest {
     private String BRNCode;
 
     @JsonProperty("employee_id")
-    private String employeeID;
+    private long employeeID;
 
     @JsonProperty("availed_services")
     private List<AvailServiceRequest> availedServices;
