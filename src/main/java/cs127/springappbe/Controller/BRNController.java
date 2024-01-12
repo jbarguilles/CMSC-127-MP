@@ -63,4 +63,15 @@ public class BRNController {
         return brnService.addServices(servicesToAvail);
     }
 
+
+
+
+
+
+
+
+    @GetMapping(path = "/all")
+    public List<BRN> findAllPGuest(){
+        return brnService.findAllBRN();
+    }
 }

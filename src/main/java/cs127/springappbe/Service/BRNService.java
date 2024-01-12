@@ -18,6 +18,8 @@ public interface BRNService {
     BRN changeBRNStatus(Long BRNID, String status);
     BRN changeBRNStatus(String BRNCode, String status);
 
+    List<BRN> findAllBRN();
+
 //    List<SecondaryGuest> findSecondaryGuests(Long BRNID);
 
     BRN addServices(ChargeServicesRequest servicesToAvail);

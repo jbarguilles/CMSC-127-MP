@@ -105,6 +105,11 @@ public class BRNServiceImpl implements BRNService{
         return clientBRN;
     }
 
+    @Override
+    public List<BRN> findAllBRN() {
+        return brnRepository.findAll();
+    }
+
 
 //    @Override
 //    public List<SecondaryGuest> findSecondaryGuests(Long BRNID){
