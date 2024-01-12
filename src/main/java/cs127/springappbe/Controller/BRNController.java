@@ -31,4 +31,5 @@ public class BRNController {
     public List<SecondaryGuest> findSecondaryGuests(@RequestParam(value="BRNID") Long BRNID){
         return sGuestService.findSecondaryGuests(BRNID);
     }
+
 }

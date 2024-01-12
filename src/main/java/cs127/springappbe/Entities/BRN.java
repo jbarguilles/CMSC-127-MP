@@ -32,6 +32,8 @@ public class BRN {
 
     private Date checkout_date;
 
+    private String status;
+
     @OneToMany(mappedBy = "brn", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<BRN_SGUEST> guests = new ArrayList<>();
 

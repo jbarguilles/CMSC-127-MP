@@ -27,7 +27,9 @@ public class BRNServiceImpl implements BRNService{
 
     @Override
     public BRN addBooking(AddBookingRequest bookingRequest) {
-        return brnRepository.save(bookingRequest.mapToBooking(pGuestService, sGuestService, roomService));
+        BRN toAdd = bookingRequest.mapToBooking(pGuestService, sGuestService, roomService);
+        toAdd.setStatus("BOOKING");
+        return brnRepository.save(toAdd);
     }
 
 //    @Override
