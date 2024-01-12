@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -26,6 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService{
         double num = Double.parseDouble(updateEmployeeSalaryRequest.getSalary());
         toUpdate.setSalary(num);
         return employeeRepository.save(toUpdate);
+    }
+
+    @Override
+    public List<Employee> findAllEmployees() {
+        return employeeRepository.findAll();
     }
 //    public Employee findByEmployeeID(long EmployeeID) {
 //        return employeeRepository.findByEmployeeID(EmployeeID);

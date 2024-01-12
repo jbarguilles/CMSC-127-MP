@@ -42,4 +42,9 @@ public class EmployeeLoginController {
     public Employee updateSalary(@RequestBody UpdateEmployeeSalaryRequest updateEmployeeSalaryRequest){
         return employeeService.updateSalary(updateEmployeeSalaryRequest);
     }
+
+    @GetMapping(path = "/all")
+    public List<Employee> findAllEmployees(){
+        return employeeService.findAllEmployees();
+    }
 }
