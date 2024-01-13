@@ -1,10 +1,14 @@
 package cs127.springappbe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RequiredArgsConstructor
 @AllArgsConstructor
@@ -14,9 +18,13 @@ import lombok.Setter;
 public class Employee_Role {
     @Id
     @SequenceGenerator(name="EMP_ROLES_seq", sequenceName = "EMP_ROLES_SEQ", allocationSize = 1)
-    @Column(nullable = false)
+    @Column(name="ROLE_ID", nullable = false)
     @GeneratedValue(generator = "EMP_ROLES_seq")
-    private long Role_Id;
+    private long roleID;
 
-    private String Role_Name;
+    private String roleName;
+
+    @OneToMany(mappedBy = "offeredBy")
+    private List<ServiceEntity> servicesOffered = new ArrayList<>();
+
 }

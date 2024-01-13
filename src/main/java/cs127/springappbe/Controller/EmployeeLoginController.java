@@ -27,7 +27,7 @@ public class EmployeeLoginController {
         if(enteredOptionalEmployee.isPresent()){
             enteredEmployee = enteredOptionalEmployee.get();
             if (Objects.equals(enteredEmployee.getAccount_Password(), employeeLoginRequest.getPassword())) {
-                return enteredEmployee.getEmployee_Role().getRole_Id();
+                return enteredEmployee.getEmployee_Role().getRoleID();
             }
         }
         return 0;

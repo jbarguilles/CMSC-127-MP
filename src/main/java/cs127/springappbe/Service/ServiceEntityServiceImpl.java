@@ -5,9 +5,11 @@ import cs127.springappbe.Repository.ServiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
-public class ServiceEntrityServiceImpl implements ServiceEntityService{
+public class ServiceEntityServiceImpl implements ServiceEntityService{
 
     private final ServiceRepository serviceRepository;
 
@@ -22,4 +24,10 @@ public class ServiceEntrityServiceImpl implements ServiceEntityService{
         }
 
     }
+
+    @Override
+    public List<ServiceEntity> findServicesByEmployeeRole(String employeeRole) {
+        return serviceRepository.findByOfferedBy_RoleName(employeeRole);
+    }
+
 }

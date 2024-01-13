@@ -1,5 +1,6 @@
 package cs127.springappbe.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,5 +21,10 @@ public class ServiceEntity {
     private long serviceID;
 
     private String serviceName;
+
+    @JsonIgnore
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "ROLE_ID", nullable = false)
+    private Employee_Role offeredBy;
 
 }

@@ -48,6 +48,7 @@ public class BRNController {
     public BRN getBRNDetailsByCode(@RequestParam(value="BRNCODE") String BRNCODE){
         return brnService.findBRNByBRNCode(BRNCODE).get();
     }
+
     @PutMapping(path="/changestatusID")
     public BRN changeStatus(@RequestParam(value="BRNID") Long BRNID, @RequestParam(value="status") String status){
         return brnService.changeBRNStatus(BRNID, status);
@@ -62,13 +63,6 @@ public class BRNController {
     public @ResponseBody BRN chargeServices(@RequestBody ChargeServicesRequest servicesToAvail){
         return brnService.addServices(servicesToAvail);
     }
-
-
-
-
-
-
-
 
     @GetMapping(path = "/all")
     public List<BRN> findAllPGuest(){
