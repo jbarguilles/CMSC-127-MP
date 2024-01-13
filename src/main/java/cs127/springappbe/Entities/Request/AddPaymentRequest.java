@@ -17,8 +17,6 @@ import java.util.Optional;
 @Setter
 public class AddPaymentRequest {
 
-    private final BRNService brnService;
-
     @JsonProperty("brn_code")
     private String brnCode;
 
@@ -34,7 +32,7 @@ public class AddPaymentRequest {
     @JsonProperty("expiration_date")
     private String expirationDate;
 
-    public Payment mapToPayment() {
+    public Payment mapToPayment(BRNService brnService) {
 
         Payment payment = new Payment();
 

@@ -22,7 +22,7 @@ public class Payment {
     private long paymentID;
 
     @OneToOne(optional = false)
-    @JoinColumn(name = "brn_brn_id", nullable = false)
+    @JoinColumn(name = "BRN_ID", nullable = false)
     private BRN brn;
 
     private String paymentType;
