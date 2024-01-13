@@ -45,7 +45,11 @@ public class AddPaymentRequest {
         payment.setPaymentType(this.paymentType);
         payment.setCardNumber(this.cardNumber);
         payment.setCvv(this.cvv);
-        payment.setExpirationDate(Date.valueOf(this.expirationDate));
+        if((this.expirationDate) == ""){
+            payment.setExpirationDate(null);
+        } else{
+            payment.setExpirationDate(Date.valueOf(this.expirationDate));
+        }
         payment.setStatus("SUCCESS");
 
         return payment;
