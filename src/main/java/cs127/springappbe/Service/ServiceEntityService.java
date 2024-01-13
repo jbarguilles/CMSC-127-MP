@@ -12,4 +12,6 @@ public interface ServiceEntityService {
 
     List<ServiceEntity> findServicesByEmployeeRole(String employeeRole);
 
+
+
 }
